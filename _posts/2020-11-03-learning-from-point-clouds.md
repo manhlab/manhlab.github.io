@@ -14,7 +14,7 @@ words: 3994
 
 It's a great achievement to have found an algorithm that can solve problems on its own (more or less) by simply dropping a huge pile of data on it and telling it what we want to know. In the grand scheme of things this is known as _machine learning_ though nowadays it mostly means _deep learning_.
 
-Deep learning is named after its champion, the _deep neural network_, which enjoys a formidable renaissance since a couple of years. Mostly though, the deep learning revolution has been taking place in a very specific domain, namely that of _images_, which we could also refer to as ordered _2D RGB point clouds_, as you might recall from the [previous post](https://hummat.github.io/learning/2020/10/16/flatlands.html).
+Deep learning is named after its champion, the _deep neural network_, which enjoys a formidable renaissance since a couple of years. Mostly though, the deep learning revolution has been taking place in a very specific domain, namely that of _images_, which we could also refer to as ordered _2D RGB point clouds_, as you might recall from the [previous post](https://manhlab.github.io/learning/2020/10/16/flatlands.html).
 
 From our perspective though, the world is arguably more three dimensional--or even four if you're Einstein--than flat. Naturally, one might wonder why we haven't heard more about advances in 3D deep learning. For once, the data acquisition is not as smooth yet compared to images. Almost everyone has access to a rather high quality camera by reaching into their pockets, but only in recent years have sensors to capture the third dimensions become somewhat affordable in the form of RGBD (D for _depth_) cameras in gaming consoles.
 
@@ -63,7 +63,7 @@ Another idea would be, to _"slide"_ a network with $3$ inputs, one for each spat
 </figure>
 </div>
 
-Let's have a closer look at _sharing_ and _sliding_. If the notion of sliding weights over inputs, performing multiplications and additions sounds familiar to you, that's because it's the definition of a convolution! But wait, didn't I just discredit convolutions for the use on point clouds? Well, bear with me for a second. As it turns out, we can replace a fully connected layer by a convolutional layer with $1\times1$ kernels. If this doesn't make sense to you, and it didn't for me in the beginning, I invite you to take a look at [my previous post](https://hummat.github.io/learning/2020/10/29/one-by-one-conv.html) where I take a deep dive into the application of $1\times1$ convolutions.
+Let's have a closer look at _sharing_ and _sliding_. If the notion of sliding weights over inputs, performing multiplications and additions sounds familiar to you, that's because it's the definition of a convolution! But wait, didn't I just discredit convolutions for the use on point clouds? Well, bear with me for a second. As it turns out, we can replace a fully connected layer by a convolutional layer with $1\times1$ kernels. If this doesn't make sense to you, and it didn't for me in the beginning, I invite you to take a look at [my previous post](https://manhlab.github.io/learning/2020/10/29/one-by-one-conv.html) where I take a deep dive into the application of $1\times1$ convolutions.
 
 On the input layer, we can replace our fully connected layer from figure 1 with a $1\times3$ convolutions, i.e. 64 filter with one $1\times3$ kernel each, as shown below.
 
@@ -191,6 +191,6 @@ The most interesting results in my eyes are obtained on corrupted and thinned da
 
 That's all for now. Next we'll take a look at learning from structured data (voxel grids), graph neural networks, which try to exploit dynamically generated local graph structures or global graph information in the form of meshes to learn from 3D data and multi-view as well as projection-based approaches learning from the 2D domain. However, this post will be updated whenever I come across an interesting new architecture which can extract meaning directly from point clouds. Thanks for reading and see you soon in the next article.
 
-[Code](https://github.com/hummat/hummat.github.io/blob/master/notebooks/learning-from-point-clouds.ipynb): [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/hummat/hummat.github.io/HEAD?filepath=%2Fnotebooks%2Flearning-from-point-clouds.ipynb)
+[Code](https://github.com/manhlab/manhlab.github.io/blob/master/notebooks/learning-from-point-clouds.ipynb): [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/manhlab/manhlab.github.io/HEAD?filepath=%2Fnotebooks%2Flearning-from-point-clouds.ipynb)
 
 ---

@@ -13,7 +13,7 @@ words: 4044
 
 # {{ page.title }}
 
-In this second part of my informal three part mini-series on probabilistic machine learning, we will be looking at _Bayesian Neural Networks_, i.e. the result of probability theory taking an interest in deep learning. Be sure to also have a look at [the first part](https://hummat.github.io/learning/2020/06/23/looking-for-lucy.html), especially if you are unfamiliar with the basics of probability theory. As usual, you can have a look at the [code](https://github.com/hummat/hummat.github.io/blob/master/notebooks/a-sense-of-uncertainty.ipynb) I used to generate the figures for this article and also play around with it [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/hummat/hummat.github.io/master?filepath=%2Fnotebooks%2Fa-sense-of-uncertainty.ipynb).
+In this second part of my informal three part mini-series on probabilistic machine learning, we will be looking at _Bayesian Neural Networks_, i.e. the result of probability theory taking an interest in deep learning. Be sure to also have a look at [the first part](https://manhlab.github.io/learning/2020/06/23/looking-for-lucy.html), especially if you are unfamiliar with the basics of probability theory. As usual, you can have a look at the [code](https://github.com/manhlab/manhlab.github.io/blob/master/notebooks/a-sense-of-uncertainty.ipynb) I used to generate the figures for this article and also play around with it [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/manhlab/manhlab.github.io/master?filepath=%2Fnotebooks%2Fa-sense-of-uncertainty.ipynb).
 
 ## Some background
 
@@ -29,7 +29,7 @@ Let’s start with the topics that won’t be covered but for which I’ll suppl
 <li><a href="https://www.youtube.com/playlist?list=PLZHQObOWTQDMsr9K-rj53DwVRMYO3t5Yr">Essence of calculus</a></li>
 <li><a href="https://www.youtube.com/playlist?list=PLSQl0a2vh4HC5feHa6Rc5c0wbRTx56nF7">Multivariate calculus</a></li>
 </ul>
-<li><b>Probability theory:</b> As you might have expected from the introduction, where there is Bayes, probability theory can’t be far. Again, an intuitive understanding will suffice to grasp what’s going on. Consider having a look at <a href="https://hummat.github.io/learning/2020/06/23/looking-for-lucy.html">my article</a> on the topic, which is intended specifically as a primer to probabilistic machine learning.</li>
+<li><b>Probability theory:</b> As you might have expected from the introduction, where there is Bayes, probability theory can’t be far. Again, an intuitive understanding will suffice to grasp what’s going on. Consider having a look at <a href="https://manhlab.github.io/learning/2020/06/23/looking-for-lucy.html">my article</a> on the topic, which is intended specifically as a primer to probabilistic machine learning.</li>
 <ul>
 <li><a href="https://seeing-theory.brown.edu/">Seeing theory</a></li>
 <li><a href="https://www.youtube.com/playlist?list=PLC58778F28211FA19">Probability explained</a></li>
@@ -107,7 +107,7 @@ Finally, both uncertainty flavors can be combined into an overall uncertainty ab
 
 ## Modeling uncertainty
 
-Now that we are certain about our need of uncertainty, we need to express it somehow. The only reason a human being doesn’t need a blueprint to do so is, that it has been indirectly hammered in by evolution and experience. In the sciences, this is done through the language of [probability theory](https://hummat.github.io/learning/2020/06/23/looking-for-lucy.html).
+Now that we are certain about our need of uncertainty, we need to express it somehow. The only reason a human being doesn’t need a blueprint to do so is, that it has been indirectly hammered in by evolution and experience. In the sciences, this is done through the language of [probability theory](https://manhlab.github.io/learning/2020/06/23/looking-for-lucy.html).
 
 Before we can go any further, we need to sharpen up our vocabulary used to refer to specific things. Let's first introduce our main protagonist: The neural network. It's getting a bit more technical now, so feel free to review some of the necessary [background knowledge](#some-background) if you're struggling to follow.
 
@@ -151,7 +151,7 @@ Below is a _loss landscape_ obtained by exploring a small area around the minimu
 
 <br>
 
-What you might not know, if you haven't been exposed to probabilistic machine learning, is, that gradient descent optimization is equivalent to _maximum likelihood estimation_ in statistical inference. Imagine you want to [find a friend on a large ship](https://hummat.github.io/learning/2020/06/23/looking-for-lucy.html). You don't know where she is but you think some locations, like the restaurant or the sun deck, are more likely than others, like the rear or the engine room. To quantify your uncertainty, you can use the tools of probability theory and model your world view as a probability distribution. If locations you deem likely are in the middle of the ship and less likely once are at the front and rear, you could, for example, use a normal distribution (aka _Gaussian distribution_ or simply _Gaussian_ in the machine learning community) centered at the middle of the ship to reflect this. What we just did is called _modeling_ of a parameter, the location of your friend, and the probability you assigned to each possible location is called _prior probability_ (or just _prior_), because it is your belief about the world before having observed any evidence (or information, or data) was observed.
+What you might not know, if you haven't been exposed to probabilistic machine learning, is, that gradient descent optimization is equivalent to _maximum likelihood estimation_ in statistical inference. Imagine you want to [find a friend on a large ship](https://manhlab.github.io/learning/2020/06/23/looking-for-lucy.html). You don't know where she is but you think some locations, like the restaurant or the sun deck, are more likely than others, like the rear or the engine room. To quantify your uncertainty, you can use the tools of probability theory and model your world view as a probability distribution. If locations you deem likely are in the middle of the ship and less likely once are at the front and rear, you could, for example, use a normal distribution (aka _Gaussian distribution_ or simply _Gaussian_ in the machine learning community) centered at the middle of the ship to reflect this. What we just did is called _modeling_ of a parameter, the location of your friend, and the probability you assigned to each possible location is called _prior probability_ (or just _prior_), because it is your belief about the world before having observed any evidence (or information, or data) was observed.
 
 {% include figures/ship_1dgauss.html %}
 

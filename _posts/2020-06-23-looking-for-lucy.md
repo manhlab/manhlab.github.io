@@ -186,6 +186,6 @@ Finally, the YouTuber 3Blue1Brown made a [fantastic video](https://www.youtube.c
 
 [^10]: From where I’ve shamelessly stolen the idea of the probability square.
 
-The code for the visualizations is available [here](https://github.com/hummat/hummat.github.io/blob/master/notebooks/looking-for-lucy.ipynb) and you can play with it here: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/hummat/hummat.github.io/master?filepath=%2Fnotebooks%2Flooking-for-lucy.ipynb)
+The code for the visualizations is available [here](https://github.com/manhlab/manhlab.github.io/blob/master/notebooks/looking-for-lucy.ipynb) and you can play with it here: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/manhlab/manhlab.github.io/master?filepath=%2Fnotebooks%2Flooking-for-lucy.ipynb)
 
 ---

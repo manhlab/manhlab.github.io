@@ -11,7 +11,7 @@ words: 2286
 
 # {{ page.title }}
 
-Yes, this is another one of these American _"help-yourself-because-life-is-your-own-destiny-and-you-are-the-architect-of-your-own-fortune"_ books. But just like the previous book---[_Deep Work_](https://hummat.github.io/book/2020/06/04/deep-work.html)---I've summarized, there are some genuinely helpful ideas in this one too.
+Yes, this is another one of these American _"help-yourself-because-life-is-your-own-destiny-and-you-are-the-architect-of-your-own-fortune"_ books. But just like the previous book---[_Deep Work_](https://manhlab.github.io/book/2020/06/04/deep-work.html)---I've summarized, there are some genuinely helpful ideas in this one too.
 
 This time, instead of focusing on how to work efficiently, we'll basically obtain a bag of tricks to keep doing something you think you want to be doing but actually don't. If you, like me, are in this predicament, I invite you to keep reading. In the worst case you lose 10 minutes and in the best case you take away some little thing worth your while.
 

@@ -14,11 +14,11 @@ words: 3221-4202
 
 # {{ page.title }}
 
-If you’ve read my [first article](https://hummat.github.io/thought/2020/05/11/hello-world.html), you’ll know that I have been toying with the idea to start my own blog for quite some time. Now that I’ve finally done it, I’d like to share how it went so far and what I’ve learned till now (disclaimer: a lot!). If you already have your own GitHub page and only want some information on how to integrate feature X you’ve seen on this blog, you can skip ahead to [Adding functionality](#adding-functionality) immediately.
+If you’ve read my [first article](https://manhlab.github.io/thought/2020/05/11/hello-world.html), you’ll know that I have been toying with the idea to start my own blog for quite some time. Now that I’ve finally done it, I’d like to share how it went so far and what I’ve learned till now (disclaimer: a lot!). If you already have your own GitHub page and only want some information on how to integrate feature X you’ve seen on this blog, you can skip ahead to [Adding functionality](#adding-functionality) immediately.
 
 ## Choosing a platform
 
-Sites like [Medium](https://medium.com/) have helped me a good deal in understanding difficult to grasp subjects, because the authors often rely on a simplified language and lot’s of visualizations. Further, there is a discussion section at the end of each article (a vital component for a blog discussing technical topics, as I’ve suggested [here](https://hummat.github.io/thought/2020/05/28/writing-good-articles.html)) to interact with your audience and to answer questions, explain parts in more detail and iron out mistakes in the article.
+Sites like [Medium](https://medium.com/) have helped me a good deal in understanding difficult to grasp subjects, because the authors often rely on a simplified language and lot’s of visualizations. Further, there is a discussion section at the end of each article (a vital component for a blog discussing technical topics, as I’ve suggested [here](https://manhlab.github.io/thought/2020/05/28/writing-good-articles.html)) to interact with your audience and to answer questions, explain parts in more detail and iron out mistakes in the article.
 
 The downside of these and similar sites is, that you don’t have as much freedom to design your post or add functionality (to which we come in the final section), you are dependent on the site operator and its policies (like financing it through adds) and it’s yet another account you need to create. Finally, you’ll probably not learn as much compared to setting it up yourself.
 
@@ -71,7 +71,7 @@ The reason templates are so great is, that instead of reinventing the wheel, whi
 
 ## Adding functionality
 
-This is the heart of this article. As I already had [clear ideas](https://hummat.github.io/thought/2020/05/28/writing-good-articles.html) what I expected from my blog, there were quite a few additions I had to make to the basic setup to get everything up and running. All of these are documented _somewhere_ on the Internet, but I think it is a good idea to put them here in one place  and how to make them play together as there are some pitfalls when combining everything.
+This is the heart of this article. As I already had [clear ideas](https://manhlab.github.io/thought/2020/05/28/writing-good-articles.html) what I expected from my blog, there were quite a few additions I had to make to the basic setup to get everything up and running. All of these are documented _somewhere_ on the Internet, but I think it is a good idea to put them here in one place  and how to make them play together as there are some pitfalls when combining everything.
 
 ### 1. Working offline
 
@@ -87,13 +87,13 @@ I’ll assume a couple of things before moving forward:
 2. You have git installed and know how to use it.
 3. You have a GitHub account.
 4. You know [how to setup a basic GitHub page](#how-to-set-it-up). 
-5. You’ve cloned or forked a template like [Minima](https://github.com/jekyll/minima). You can also have a look at the GitHub repository for [this blog](https://github.com/hummat/hummat.github.io), which, as mentioned previously, is a fork of the [Jekyll Now](https://www.smashingmagazine.com/2014/08/build-blog-jekyll-github-pages/) theme.
+5. You’ve cloned or forked a template like [Minima](https://github.com/jekyll/minima). You can also have a look at the GitHub repository for [this blog](https://github.com/manhlab/manhlab.github.io), which, as mentioned previously, is a fork of the [Jekyll Now](https://www.smashingmagazine.com/2014/08/build-blog-jekyll-github-pages/) theme.
 
 #### Setup
 
 Now, follow the official Jekyll Ubuntu or other Linux distros [installation guide](https://jekyllrb.com/docs/installation/). If you haven’t cloned or forked a template like mentioned in step 5 above, you can also clone your basic GitHub page repository, change into its directory and run `bundle exec jekyll new .` (note the dot in the end). 
 
-There are a couple of interesting files in your GitHub page repository/directory. For now, the most important is the [Gemfile](https://github.com/hummat/hummat.github.io/blob/master/Gemfile). Here you need to change `gem “jekyll”` into `gem "github-pages", "~> 206", group: :jekyll_plugins`.  You can also go ahead and add some plugins we will use later:
+There are a couple of interesting files in your GitHub page repository/directory. For now, the most important is the [Gemfile](https://github.com/manhlab/manhlab.github.io/blob/master/Gemfile). Here you need to change `gem “jekyll”` into `gem "github-pages", "~> 206", group: :jekyll_plugins`.  You can also go ahead and add some plugins we will use later:
 
 ```javascript
 group :jekyll_plugins do
@@ -104,27 +104,27 @@ group :jekyll_plugins do
 end
 ```
 
-The number behind each plugin is its version, which should match the GitHub pages [dependency version](https://pages.github.com/versions/) to make sure that your offline site looks and works identical to the one processed by GitHub once you go online. Now, head into the [`_config.yml`](https://github.com/hummat/hummat.github.io/blob/master/_config.yml) file and add/change `markdown: kramdown`, which is the processor used by GitHub to convert your markdown into HTML.
+The number behind each plugin is its version, which should match the GitHub pages [dependency version](https://pages.github.com/versions/) to make sure that your offline site looks and works identical to the one processed by GitHub once you go online. Now, head into the [`_config.yml`](https://github.com/manhlab/manhlab.github.io/blob/master/_config.yml) file and add/change `markdown: kramdown`, which is the processor used by GitHub to convert your markdown into HTML.
 
 Afterwards, or if you have used a template, run `bundle exec jekyll serve`. If you get errors, run `bundle update` and try again. You should now be able to open your GitHub page in your browser by navigating to [http://127.0.0.1:4000/](http://127.0.0.1:4000/).
 
 #### Files and directories
 
-Something I found confusing in the beginning is the rather complicated [file and directory structure](https://github.com/hummat/hummat.github.io). Here’s a quick overview of what’s what:
+Something I found confusing in the beginning is the rather complicated [file and directory structure](https://github.com/manhlab/manhlab.github.io). Here’s a quick overview of what’s what:
 
-1. [`index.md`](https://github.com/hummat/hummat.github.io/blob/master/index.md): Your landing page. It’s empty except for its layout, which is defined in [`_layouts/home.html`](https://github.com/hummat/hummat.github.io/blob/master/_layouts/home.html).
-2. [`about.md`](https://github.com/hummat/hummat.github.io/blob/master/about.md): Jekyll differentiates between _pages_ and _posts_. I’m using pages as self contained units, like the landing page and the _About_ page and posts for, well, posts.
-3. [`style.scss`](https://github.com/hummat/hummat.github.io/blob/master/style.scss): Together with the files in [`_sass`](https://github.com/hummat/hummat.github.io/tree/master/_sass), this determines the look of your HMTL elements.
-4. [`_posts`](https://github.com/hummat/hummat.github.io/tree/master/_posts): This is where your blog posts go. It’s just a bunch of markdown files, one for each post with a date in front which gets added to the `page.date` variable automatically. I’ll come back to those variables in the [next section](#liquid-templating).
-5. [`_drafts`](https://github.com/hummat/hummat.github.io/tree/master/_drafts): Here you can put unfinished posts which you can render locally using `bundle exec jekyll serve --draft` and which don’t show up in the online version of your page.
-6. [`_layouts`](https://github.com/hummat/hummat.github.io/tree/master/_layouts): This directory, together with `_includes`, `_sass` and the `style.css` are the heart of each template and define the entire look of your page, apart from the content of your posts. Here you find all the HTML code of your site, so this is where you should look if you want to change the structure of it. There is a [`default.html`](https://github.com/hummat/hummat.github.io/blob/master/_layouts/default.html) defining some properties which are inherited by the other layout files while the [`home.html`](https://github.com/hummat/hummat.github.io/blob/master/_layouts/home.html), [`page.html`](https://github.com/hummat/hummat.github.io/blob/master/_layouts/page.html) and [`post.html`](https://github.com/hummat/hummat.github.io/blob/master/_layouts/post.html) define the layouts of the index page as well as other pages and posts respectively.
-7. [`_includes`](https://github.com/hummat/hummat.github.io/tree/master/_includes): Here you’ll find additional functionality which you can include into a layout. The `default.html` layout for example includes the [`mathjax.html`](https://github.com/hummat/hummat.github.io/blob/master/_includes/mathjax.html) for math support while the `post.html` includes [`disqus.html`](https://github.com/hummat/hummat.github.io/blob/master/_includes/disqus.html) for [DISQUS](https://disqus.com/) discussion support. We’ll look at those includes in more detail in the following sections.
+1. [`index.md`](https://github.com/manhlab/manhlab.github.io/blob/master/index.md): Your landing page. It’s empty except for its layout, which is defined in [`_layouts/home.html`](https://github.com/manhlab/manhlab.github.io/blob/master/_layouts/home.html).
+2. [`about.md`](https://github.com/manhlab/manhlab.github.io/blob/master/about.md): Jekyll differentiates between _pages_ and _posts_. I’m using pages as self contained units, like the landing page and the _About_ page and posts for, well, posts.
+3. [`style.scss`](https://github.com/manhlab/manhlab.github.io/blob/master/style.scss): Together with the files in [`_sass`](https://github.com/manhlab/manhlab.github.io/tree/master/_sass), this determines the look of your HMTL elements.
+4. [`_posts`](https://github.com/manhlab/manhlab.github.io/tree/master/_posts): This is where your blog posts go. It’s just a bunch of markdown files, one for each post with a date in front which gets added to the `page.date` variable automatically. I’ll come back to those variables in the [next section](#liquid-templating).
+5. [`_drafts`](https://github.com/manhlab/manhlab.github.io/tree/master/_drafts): Here you can put unfinished posts which you can render locally using `bundle exec jekyll serve --draft` and which don’t show up in the online version of your page.
+6. [`_layouts`](https://github.com/manhlab/manhlab.github.io/tree/master/_layouts): This directory, together with `_includes`, `_sass` and the `style.css` are the heart of each template and define the entire look of your page, apart from the content of your posts. Here you find all the HTML code of your site, so this is where you should look if you want to change the structure of it. There is a [`default.html`](https://github.com/manhlab/manhlab.github.io/blob/master/_layouts/default.html) defining some properties which are inherited by the other layout files while the [`home.html`](https://github.com/manhlab/manhlab.github.io/blob/master/_layouts/home.html), [`page.html`](https://github.com/manhlab/manhlab.github.io/blob/master/_layouts/page.html) and [`post.html`](https://github.com/manhlab/manhlab.github.io/blob/master/_layouts/post.html) define the layouts of the index page as well as other pages and posts respectively.
+7. [`_includes`](https://github.com/manhlab/manhlab.github.io/tree/master/_includes): Here you’ll find additional functionality which you can include into a layout. The `default.html` layout for example includes the [`mathjax.html`](https://github.com/manhlab/manhlab.github.io/blob/master/_includes/mathjax.html) for math support while the `post.html` includes [`disqus.html`](https://github.com/manhlab/manhlab.github.io/blob/master/_includes/disqus.html) for [DISQUS](https://disqus.com/) discussion support. We’ll look at those includes in more detail in the following sections.
 
 ### 2. Liquid templating
 
 [Liquid](https://shopify.github.io/liquid/) is a kind of small scripting language, allowing you to do rudimentary dynamic things inside your otherwise static GitHub page. It’s mainly used to store values in variables, which can then be used elsewhere and for simple if-else control flow (or at least I’m using it like this).
 
-Variables can be accessed using {% raw %}{{ variable }}{% endraw %} while logical statements are written like {% raw %}{% if statement %}{% endraw %}. How to define variables? There are a number of predefined variables you can use anywhere on the site or in a post like the `site.title` and `site.description`  defined in the [_config.yml](https://github.com/hummat/hummat.github.io/blob/master/_config.yml) or  `site.posts`, a list of all your posts in the `_posts` directory which is used by [`home.html`](https://github.com/hummat/hummat.github.io/blob/master/_layouts/home.html) to iterate over all of them using {% raw %}{% for post in site.posts %}{% endraw %} and to render them subsequently.
+Variables can be accessed using {% raw %}{{ variable }}{% endraw %} while logical statements are written like {% raw %}{% if statement %}{% endraw %}. How to define variables? There are a number of predefined variables you can use anywhere on the site or in a post like the `site.title` and `site.description`  defined in the [_config.yml](https://github.com/manhlab/manhlab.github.io/blob/master/_config.yml) or  `site.posts`, a list of all your posts in the `_posts` directory which is used by [`home.html`](https://github.com/manhlab/manhlab.github.io/blob/master/_layouts/home.html) to iterate over all of them using {% raw %}{% for post in site.posts %}{% endraw %} and to render them subsequently.
 
 A page also has some predefined variables like `page.date`. Here is where seems between Jekyll and Liquid begin to show in my opinion, as Liquid only knows `site` and `page` so the date of a Jekyll post or page are both accessed using `page.date`. That’s confusing! So always use `page` to access a variable, even if you’re writing a post. For example, I like to begin each post with the following markdown: {% raw %}# {{ page.title }}{% endraw %}. 
 
@@ -138,7 +138,7 @@ thumbnail: /images/image.png
 ---
 ```
 
-at the front of a post and whatever you define there can then be accessed using e.g. {% raw %}{{ page.thumbnail }}{% endraw %}. As hinted at in the example, I like to define the location of the thumbnail image I use next to a post here and then to include it in [home.html](https://github.com/hummat/hummat.github.io/blob/master/_layouts/home.html) like so:[^post]
+at the front of a post and whatever you define there can then be accessed using e.g. {% raw %}{{ page.thumbnail }}{% endraw %}. As hinted at in the example, I like to define the location of the thumbnail image I use next to a post here and then to include it in [home.html](https://github.com/manhlab/manhlab.github.io/blob/master/_layouts/home.html) like so:[^post]
 
 [^post]: Note again the `post` vs `page` dilemma.
 
@@ -158,7 +158,7 @@ By the way, I just learned something new while writing this section: If you want
 
 Enabling a [DISQUS](https://disqus.com/) discussion section involves two steps. First you need to make a DISQUS account. Once you have it, go to `Admin` and at the top create a new site. The _Website name_ should be `yourgithubname.github.io` and the _Website URL_ should be `https://yourgithubname.github.io/`. Once you have created your site you’ll get a `Shortname` which is a unique identifier for your site and which you’ll need for the next step.
 
-Open your[`_config.yml`](https://github.com/hummat/hummat.github.io/blob/master/_config.yml) and add/change `disqus: yourshortname`. Mine is `disqus: hummat-github-io` and I guess yours will be similar. You’ll also have to add/change the `url` field. Mine is `url: "https://hummat.github.io"`. In your [`post.html`](https://github.com/hummat/hummat.github.io/blob/master/_layouts/post.html) add {% raw %}{% include disqus.html %}{% endraw %}. Make sure you have a [`disqus.html`](https://github.com/hummat/hummat.github.io/blob/master/_includes/disqus.html) similar to mine in your `_includes` directory. It checks whether you have defined your shortname in the `_config.yml` and disables comments if you’ve set `comments` to `false` inside your posts YAML Front Matter, which you can use to disable comments in certain posts if you don’t need them.
+Open your[`_config.yml`](https://github.com/manhlab/manhlab.github.io/blob/master/_config.yml) and add/change `disqus: yourshortname`. Mine is `disqus: manhlab-github-io` and I guess yours will be similar. You’ll also have to add/change the `url` field. Mine is `url: "https://manhlab.github.io"`. In your [`post.html`](https://github.com/manhlab/manhlab.github.io/blob/master/_layouts/post.html) add {% raw %}{% include disqus.html %}{% endraw %}. Make sure you have a [`disqus.html`](https://github.com/manhlab/manhlab.github.io/blob/master/_includes/disqus.html) similar to mine in your `_includes` directory. It checks whether you have defined your shortname in the `_config.yml` and disables comments if you’ve set `comments` to `false` inside your posts YAML Front Matter, which you can use to disable comments in certain posts if you don’t need them.
 
 That’s it! You now should have a discussion section similar to the one at the end of this post.
 
@@ -166,13 +166,13 @@ That’s it! You now should have a discussion section similar to the one at the 
 
 If you want to write about math related topics like machine learning, you need to be able to display mathematical equations. While you can get away with simply typing 2+2=4, it is not exactly pretty anything slightly more complex is out of your reach.  The de facto standard to render high quality math in the scientific community is $\LaTeX$. Aha, you see where this is going, right?
 
-On the web, Latex, or rather Latex math mode, is supported through the JavaScript library [MathJax](https://www.mathjax.org/). To get it to work inside GitHub pages you need to have an include file like [this one](https://github.com/hummat/hummat.github.io/blob/master/_includes/mathjax.html). There are a few things to note about this file. The first is the Liquid tag {% raw %}{% if page.mathjax %}{% endraw %}, which allows you to only enable MathJax in posts where you need it, similar to the DISQUS approach above[^javascript].
+On the web, Latex, or rather Latex math mode, is supported through the JavaScript library [MathJax](https://www.mathjax.org/). To get it to work inside GitHub pages you need to have an include file like [this one](https://github.com/manhlab/manhlab.github.io/blob/master/_includes/mathjax.html). There are a few things to note about this file. The first is the Liquid tag {% raw %}{% if page.mathjax %}{% endraw %}, which allows you to only enable MathJax in posts where you need it, similar to the DISQUS approach above[^javascript].
 
 [^javascript]: We do this, because JavaScript libraries are usually slow to load, especially if they are large, so no point in bloating up a post which doesn’t even make use of the functionality.
 
 We then configure how we want MathJax to behave. Most important are the `inlineMath` and `displayMath` lines, which allow you to enable math mode the same way you’d do it inside a Latex file.
 
-Finally, we load the library from a remote source so it’s always up to date and doesn’t bloat our site. After some research I’m now pretty confident that the URL given in my [`mathjax.html`](https://github.com/hummat/hummat.github.io/blob/master/_includes/mathjax.html) is currently the correct one to use. You can now do things like this!
+Finally, we load the library from a remote source so it’s always up to date and doesn’t bloat our site. After some research I’m now pretty confident that the URL given in my [`mathjax.html`](https://github.com/manhlab/manhlab.github.io/blob/master/_includes/mathjax.html) is currently the correct one to use. You can now do things like this!
 
 $$
 \mathcal{N}(\mu,\sigma^2)=\frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{1}{2}\left(\frac{x-\mu}{\sigma}\right)^2}
@@ -180,9 +180,9 @@ $$
 
 ### 5. Interactive visualizations
 
-Okay, so this really gets me excited! The ability to add interactive visualizations is my newest achievement and it’s so neat! I’ve already written about why I think visualizations are the best thing that can happen to a complicated topic [here](https://hummat.github.io/thought/2020/05/28/writing-good-articles.html), so I won’t repeat myself, but interactive visualizations?! That’s like visualizations on steroids. So, how can it be done?
+Okay, so this really gets me excited! The ability to add interactive visualizations is my newest achievement and it’s so neat! I’ve already written about why I think visualizations are the best thing that can happen to a complicated topic [here](https://manhlab.github.io/thought/2020/05/28/writing-good-articles.html), so I won’t repeat myself, but interactive visualizations?! That’s like visualizations on steroids. So, how can it be done?
 
-It all starts with [Plotly’s Python graphing library](https://plotly.com/python/). It’s basically Matplotlib for the web, if you know what I mean. You write some visualization code like [this one](https://github.com/hummat/hummat.github.io/blob/master/notebooks/the-blog.ipynb)—play with it on [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/hummat/hummat.github.io/master?filepath=%2Fnotebooks%2Fthe-blog.ipynb) if you like (might take a while to start)—and then you save the figure in a special way:
+It all starts with [Plotly’s Python graphing library](https://plotly.com/python/). It’s basically Matplotlib for the web, if you know what I mean. You write some visualization code like [this one](https://github.com/manhlab/manhlab.github.io/blob/master/notebooks/the-blog.ipynb)—play with it on [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/manhlab/manhlab.github.io/master?filepath=%2Fnotebooks%2Fthe-blog.ipynb) if you like (might take a while to start)—and then you save the figure in a special way:
 
 ```python
 import plotly.io as pio
@@ -270,7 +270,7 @@ This works as expected! (Note the `markdown="1"` addition)
    * Sub bullets
 </details>
 
-There is no need to add weird whitespace, doesn't break other code like the interactive visualizations and can also be used to wrap markdown content in other kinds of [HTML containers](https://hummat.github.io/resource/2020/06/08/conferences.html).
+There is no need to add weird whitespace, doesn't break other code like the interactive visualizations and can also be used to wrap markdown content in other kinds of [HTML containers](https://manhlab.github.io/resource/2020/06/08/conferences.html).
 
 ### 7. Tips, Tweaks & Tricks
 
@@ -280,7 +280,7 @@ There are a couple of small tweaks and insights I’d like to summarize in this 
 
   Footnotes are great to unclutter your main text, but I hate to have to jump to the end of the page (or, heavens forbid, scroll there) only to scroll back up in search of where I left of once I’ve read the footnote. That’s already slightly improved in the build in way markdown handles footnotes, as there always is a reference _back_ to where you came from. Simply write `[^1]` where you want your footnote to appear and then, somewhere below, `[^1]: your footnote text`.
 
-  But the main advantage of the digital format is, that you can show footnotes in a popup next to the text where they appear whenever you hover or click on them. To enable this functionality, simply add [this file](https://github.com/hummat/hummat.github.io/blob/master/_includes/popup.html) to your `_include` directory[^5] and this line {% raw %}{% include popup.html %}{% endraw %} to your e.g. default layout in `_layouts`. Et voilá, popup footnotes![^6]
+  But the main advantage of the digital format is, that you can show footnotes in a popup next to the text where they appear whenever you hover or click on them. To enable this functionality, simply add [this file](https://github.com/manhlab/manhlab.github.io/blob/master/_includes/popup.html) to your `_include` directory[^5] and this line {% raw %}{% include popup.html %}{% endraw %} to your e.g. default layout in `_layouts`. Et voilá, popup footnotes![^6]
 
   [^5]: Adapted from [here](https://github.com/vaetas/hugo-footnotes-popup).
   [^6]: I’m a popup footnote!
@@ -303,7 +303,7 @@ There are a couple of small tweaks and insights I’d like to summarize in this 
 
 * #### Selective printing
 
-  In an [earlier post](https://hummat.github.io/book/2020/06/04/deep-work.html) I wanted the reader to be able to print out a specific section (the summary) of the post. One way to achieve this is wrapping everything you _don’t_ want to be printed into `<div class="noprint" markdown="1"></div>`[^7] fences and putting the following into your `style.scss` file:
+  In an [earlier post](https://manhlab.github.io/book/2020/06/04/deep-work.html) I wanted the reader to be able to print out a specific section (the summary) of the post. One way to achieve this is wrapping everything you _don’t_ want to be printed into `<div class="noprint" markdown="1"></div>`[^7] fences and putting the following into your `style.scss` file:
 
   ```scss
   @media print {
@@ -317,17 +317,17 @@ There are a couple of small tweaks and insights I’d like to summarize in this 
 
 * #### Slideshows
 
-  Slideshows are neat, because you can put in tons of visualizations without making your post unbearably long. I’ve basically copy-pasted [this example](https://www.w3schools.com/howto/howto_js_slideshow.asp) into a [`_includes/slideshow.html`](https://github.com/hummat/hummat.github.io/blob/master/_includes/slideshow.html) (JavaScript part)[^8] and a [`_sass/_slideshow.scss`](https://github.com/hummat/hummat.github.io/blob/master/_sass/_slideshow.scss) (CSS part) and enabled it by putting {% raw %}{% include slideshow.html %}{% endraw %} into my [`_layouts/default.html`](https://github.com/hummat/hummat.github.io/blob/master/_layouts/default.html) file as well as `@import "slideshow";` at the top of my [`style.scss`](https://github.com/hummat/hummat.github.io/blob/master/style.scss) file.
+  Slideshows are neat, because you can put in tons of visualizations without making your post unbearably long. I’ve basically copy-pasted [this example](https://www.w3schools.com/howto/howto_js_slideshow.asp) into a [`_includes/slideshow.html`](https://github.com/manhlab/manhlab.github.io/blob/master/_includes/slideshow.html) (JavaScript part)[^8] and a [`_sass/_slideshow.scss`](https://github.com/manhlab/manhlab.github.io/blob/master/_sass/_slideshow.scss) (CSS part) and enabled it by putting {% raw %}{% include slideshow.html %}{% endraw %} into my [`_layouts/default.html`](https://github.com/manhlab/manhlab.github.io/blob/master/_layouts/default.html) file as well as `@import "slideshow";` at the top of my [`style.scss`](https://github.com/manhlab/manhlab.github.io/blob/master/style.scss) file.
 
   [^8]: With the addition of {% raw %}{% if page.slideshow %}{% endraw %} so I can enable it only if needed by putting `slideshow: true` into a posts YAML Front Matter.
   
 * #### Interactive code
 
-  Interactive figures are one thing, but as you most likely produced them using some code, wouldn’t it be nice if people also could interact with the _code_ and change the figure to their liking? Fortunately that’s super simple! Like already shown [here](#5-interactive-visualizations), you can create your figures in a [Jupyter notebook](https://jupyter.org/)—like [this one](https://github.com/hummat/hummat.github.io/blob/master/notebooks/the-blog.ipynb) which you can find in the [notebooks](https://github.com/hummat/hummat.github.io/blob/master/notebooks) directory—and add an [`environment.yml`](https://github.com/hummat/hummat.github.io/blob/master/environment.yml)[^9] file to the root of your GitHub page repository, filling in all packages you used in your notebook. Then head over to the [Binder website](https://mybinder.org/).
+  Interactive figures are one thing, but as you most likely produced them using some code, wouldn’t it be nice if people also could interact with the _code_ and change the figure to their liking? Fortunately that’s super simple! Like already shown [here](#5-interactive-visualizations), you can create your figures in a [Jupyter notebook](https://jupyter.org/)—like [this one](https://github.com/manhlab/manhlab.github.io/blob/master/notebooks/the-blog.ipynb) which you can find in the [notebooks](https://github.com/manhlab/manhlab.github.io/blob/master/notebooks) directory—and add an [`environment.yml`](https://github.com/manhlab/manhlab.github.io/blob/master/environment.yml)[^9] file to the root of your GitHub page repository, filling in all packages you used in your notebook. Then head over to the [Binder website](https://mybinder.org/).
 
   [^9]: This assumes you are using `conda`, if you use `pip` or other languages than Python, check out the [Binder documentation](https://mybinder.readthedocs.io/en/latest/config_files.html).
 
-  Over there, you simply fill in the URL of your [GitHub pages repository](https://github.com/hummat/hummat.github.io) and the path to the notebook you want to run—like `/notebooks/the-blog.ipynb`—and copy the markdown generated below. Paste it wherever you want to link to your code to get this: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/hummat/hummat.github.io/master?filepath=%2Fnotebooks%2Fbeautiful-blogging.ipynb)
+  Over there, you simply fill in the URL of your [GitHub pages repository](https://github.com/manhlab/manhlab.github.io) and the path to the notebook you want to run—like `/notebooks/the-blog.ipynb`—and copy the markdown generated below. Paste it wherever you want to link to your code to get this: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/manhlab/manhlab.github.io/master?filepath=%2Fnotebooks%2Fbeautiful-blogging.ipynb)
 
   An interested reader can now simply click on it to start an interactive version of your code!
 
