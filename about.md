@@ -21,5 +21,5 @@ If you were wondering what this bag of words is doing next to each post let me e
 
 My hope is, that this will make navigating a growing number of posts more intuitive but will also allow to group posts by topic or tags to find things faster.
 
-Best regards</br>
+Best regards<br>
 Manh Lab
