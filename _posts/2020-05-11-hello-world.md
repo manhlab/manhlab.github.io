@@ -18,4 +18,4 @@ Hello! You are reading my first, rather uninspirational, blog post. I've been to
 Well, still got a little personal right there! I'll try to have at least one post a month, though this is rather a promise to myself than to you, dear reader. Hope to see you (and me) around soon.
 
 Best,<br>
-Matthias.
+ManhLab.

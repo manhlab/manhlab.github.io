@@ -13,7 +13,7 @@ I’m currently learning at ITMO University, Russia. This blog is my attempt to 
 I’ll try really hard to make my posts interesting, easy to follow and engaging and explain each topic from a _“visualize first, bring out the math later”_ perspective. Feel free to contact me, either directly through the comment sections below most posts or via [email](mailto:manhtranduc1111@gmail.com), should there be anything unclear or if you think I could help you with a concrete problem.
 
 Have a great day!<br>
-Matthias
+ManhLab
 
 ## What’s this clutter next to each post?
 
